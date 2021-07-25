@@ -1,0 +1,27 @@
+{
+  "name": "dream-melange-tea-tailwind",
+  "dependencies": {
+    "@opam/dream": "1.0.0~alpha2",
+    "@opam/dune": "^2.0",
+    "melange": "melange-re/melange",
+    "ocaml": "4.12.x"
+  },
+  "devDependencies": {
+    "@opam/ocaml-lsp-server": "*",
+    "@opam/ocamlfind-secondary": "*",
+    "@opam/ocamlformat": "0.19.0"
+  },
+  "resolutions": {
+    "@opam/conf-libev": "esy-packages/libev:package.json#0b5eb6685b688649045aceac55dc559f6f21b829"
+  },
+  "esy": {
+    "buildsInSource": "unsafe",
+    "build": [
+      "ln -sfn #{melange.install} node_modules/bs-platform",
+      "bsb -make-world"
+    ]
+  },
+  "scripts": {
+    "start": "dune exec --root . server/server.exe"
+  }
+}

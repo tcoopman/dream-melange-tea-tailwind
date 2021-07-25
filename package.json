@@ -1,0 +1,16 @@
+{
+  "name": "dream-melange-tea-tailwind",
+  "devDependencies": {
+    "esbuild": "^0.12.15",
+    "esy": "^0.6.10"
+  },
+  "dependencies": {
+    "bucklescript-tea": "^0.15.0"
+  },
+  "scripts": {
+    "postinstall": "esy",
+    "build": "esy bsb -make-world -- --root .",
+    "pack": "cp ./client/index.js _build/default/client && esbuild _build/default/client/index.js --bundle --outfile=static/index.js",
+    "start": "npm run build && npm run pack && esy start"
+  }
+}
