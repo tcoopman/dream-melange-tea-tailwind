@@ -13,6 +13,7 @@
     "build": "esy bsb -make-world -- --root .",
     "pack": "cp ./client/index.js _build/default/client && esbuild _build/default/client/index.js --bundle --outfile=static/index.js",
     "build-css": "tailwindcss -i ./client/index.css -o ./static/index.css",
-    "start": "npm run build && npm run build-css && npm run pack && esy start"
+    "start": "npm run build && npm run build-css && npm run pack && esy start",
+    "dev": "watchexec -w client -w server bin/dev.sh"
   }
 }
